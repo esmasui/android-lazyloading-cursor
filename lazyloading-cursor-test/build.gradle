@@ -1,12 +1,11 @@
 buildscript {
     repositories {
-        maven { url 'http://repo1.maven.org/maven2' }
+        mavenCentral()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:0.4'
     }
 }
-
 apply plugin: 'android'
 
 group = 'com.uphyca.android.test'
@@ -18,30 +17,23 @@ sourceCompatibility = 1.6
 targetCompatibility = 1.6
 
 repositories {
-     mavenRepo url: "http://repo.maven.apache.org/maven2"
+    mavenRepo url: "http://repo.maven.apache.org/maven2"
 }
 
 dependencies {
     compile(project(':lazyloading-cursor')){
-        exclude group: 'com.google.android' 
+        exclude group: 'com.google.android'
+    }
+    compile files('libs/android-support-v4.jar')
+
+    instrumentTestCompile(project(':lazyloading-cursor')){
+        exclude group: 'com.google.android'
     }
 }
 
 android {
     compileSdkVersion 17
     buildToolsVersion "17.0.0"
-
-    sourceSets {
-        main {
-            manifest.srcFile 'AndroidManifest.xml'
-            java.srcDirs = ['src']
-            resources.srcDirs = ['src']
-            aild.srcDirs = ['src']
-            renderscript.srcDirs = ['src']
-            res.srcDirs = ['res']
-            assets.srcDirs = ['assets']
-        }
-    }
 
     defaultConfig {
         minSdkVersion 7
