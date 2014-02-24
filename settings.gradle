@@ -1,1 +1,1 @@
-include ':lazyloading-cursor', ':lazyloading-cursor-test'
+include ':lazyloading-cursor' ,':lazyloading-cursor-test'

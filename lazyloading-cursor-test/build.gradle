@@ -3,12 +3,12 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.4'
+        classpath 'com.android.tools.build:gradle:0.7.+'
     }
 }
 apply plugin: 'android'
 
-group = 'com.uphyca.android.test'
+group = 'com.uphyca.android.sqlite'
 version = '1.0-SNAPSHOT'
 
 description = """lazyloading-cursor-test"""
@@ -17,26 +17,27 @@ sourceCompatibility = 1.6
 targetCompatibility = 1.6
 
 repositories {
-    mavenRepo url: "http://repo.maven.apache.org/maven2"
+    mavenCentral()
 }
 
 dependencies {
     compile(project(':lazyloading-cursor')){
         exclude group: 'com.google.android'
     }
-    compile files('libs/android-support-v4.jar')
 
     instrumentTestCompile(project(':lazyloading-cursor')){
         exclude group: 'com.google.android'
     }
+
+    compile 'com.android.support:support-v4:+'
 }
 
 android {
-    compileSdkVersion 17
-    buildToolsVersion "17.0.0"
+    compileSdkVersion 19
+    buildToolsVersion "19.0.2"
 
     defaultConfig {
         minSdkVersion 7
-        targetSdkVersion 16
+        targetSdkVersion 19
     }
 }

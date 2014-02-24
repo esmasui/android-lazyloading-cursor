@@ -108,7 +108,9 @@ public abstract class Benchmark<T extends ContentProvider> extends ProviderTestC
 
         Log.i("Benchmark", toString() + ":fetchFirst==" + (System.currentTimeMillis() - current) + "(ms)");
 
-        while (FETCH_ALL && result.moveToNext()) {
+        if (FETCH_ALL) {
+            while (result.moveToNext()) {
+            }
         }
 
         result.close();

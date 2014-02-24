@@ -1,5 +1,5 @@
 apply plugin: 'java'
-apply plugin: 'maven'
+//apply plugin: 'maven'
 
 group = 'com.uphyca.android'
 version = '1.0-SNAPSHOT'
@@ -10,7 +10,8 @@ sourceCompatibility = 1.6
 targetCompatibility = 1.6
 
 repositories {
-     mavenRepo url: "http://repo.maven.apache.org/maven2"
+	mavenCentral()
+    //mavenRepo url: "http://repo.maven.apache.org/maven2"
 }
 
 dependencies {
